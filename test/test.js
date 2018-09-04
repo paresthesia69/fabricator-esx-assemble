@@ -1,14 +1,14 @@
-var _ = require('lodash');
-var assert = require('assert');
-var assemble = require('../');
-var del = require('del');
-var fs = require('fs');
-var minify = require('html-minifier').minify;
+const _ = require('lodash');
+const assert = require('assert');
+const assemble = require('../');
+const del = require('del');
+const fs = require('fs');
+const minify = require('html-minifier').minify;
 
 describe('fabricator-assemble', function () {
 
 	// fabricator-assemble task options
-	var options = {
+	const options = {
 		layout: 'default',
 		layouts: './test/fixtures/views/layouts/*',
 		layoutIncludes: './test/fixtures/views/layouts/includes/*',
@@ -33,8 +33,8 @@ describe('fabricator-assemble', function () {
 
 		assemble(options);
 
-		var output = minify(fs.readFileSync('./test/output/index.html', 'utf-8'), { collapseWhitespace: true });
-		var expected = minify(fs.readFileSync('./test/expected/index.html', 'utf-8'), { collapseWhitespace: true });
+		const output = minify(fs.readFileSync('./test/output/index.html', 'utf-8'), { collapseWhitespace: true });
+		const expected = minify(fs.readFileSync('./test/expected/index.html', 'utf-8'), { collapseWhitespace: true });
 
 		assert.equal(output, expected);
 		done();
@@ -46,8 +46,8 @@ describe('fabricator-assemble', function () {
 
 		assemble(options);
 
-		var output = minify(fs.readFileSync('./test/output/docs.html', 'utf-8'), { collapseWhitespace: true });
-		var expected = minify(fs.readFileSync('./test/expected/docs.html', 'utf-8'), { collapseWhitespace: true });
+		const output = minify(fs.readFileSync('./test/output/docs.html', 'utf-8'), { collapseWhitespace: true });
+		const expected = minify(fs.readFileSync('./test/expected/docs.html', 'utf-8'), { collapseWhitespace: true });
 
 		assert.equal(output, expected);
 		done();
@@ -59,8 +59,8 @@ describe('fabricator-assemble', function () {
 
 		assemble(options);
 
-		var output = minify(fs.readFileSync('./test/output/pages/home.html', 'utf-8'), { collapseWhitespace: true });
-		var expected = minify(fs.readFileSync('./test/expected/home.html', 'utf-8'), { collapseWhitespace: true });
+		const output = minify(fs.readFileSync('./test/output/pages/home.html', 'utf-8'), { collapseWhitespace: true });
+		const expected = minify(fs.readFileSync('./test/expected/home.html', 'utf-8'), { collapseWhitespace: true });
 
 		assert.equal(output, expected);
 		done();
@@ -72,8 +72,8 @@ describe('fabricator-assemble', function () {
 
 		assemble(options);
 
-		var output = minify(fs.readFileSync('./test/output/includes.html', 'utf-8'), { collapseWhitespace: true });
-		var expected = minify(fs.readFileSync('./test/expected/includes.html', 'utf-8'), { collapseWhitespace: true });
+		const output = minify(fs.readFileSync('./test/output/includes.html', 'utf-8'), { collapseWhitespace: true });
+		const expected = minify(fs.readFileSync('./test/expected/includes.html', 'utf-8'), { collapseWhitespace: true });
 
 		assert.equal(output, expected);
 		done();
@@ -85,8 +85,8 @@ describe('fabricator-assemble', function () {
 
 		assemble(options);
 
-		var output = minify(fs.readFileSync('./test/output/helpers.html', 'utf-8'), { collapseWhitespace: true });
-		var expected = minify(fs.readFileSync('./test/expected/helpers.html', 'utf-8'), { collapseWhitespace: true });
+		const output = minify(fs.readFileSync('./test/output/helpers.html', 'utf-8'), { collapseWhitespace: true });
+		const expected = minify(fs.readFileSync('./test/expected/helpers.html', 'utf-8'), { collapseWhitespace: true });
 
 		assert.equal(output, expected);
 		done();
@@ -101,8 +101,8 @@ describe('fabricator-assemble', function () {
 			}
 		}));
 
-		var output = minify(fs.readFileSync('./test/output/material-key.html', 'utf-8'), { collapseWhitespace: true });
-		var expected = minify(fs.readFileSync('./test/expected/material-key.html', 'utf-8'), { collapseWhitespace: true });
+		const output = minify(fs.readFileSync('./test/output/material-key.html', 'utf-8'), { collapseWhitespace: true });
+		const expected = minify(fs.readFileSync('./test/expected/material-key.html', 'utf-8'), { collapseWhitespace: true });
 
 		assert.equal(output, expected);
 		done();
